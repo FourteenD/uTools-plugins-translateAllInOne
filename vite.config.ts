@@ -1,7 +1,9 @@
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { defineConfig } from "vite";
+import Inspect from "vite-plugin-inspect";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
+import utools from "./plugins/vite-plugin-utools";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte()]
-})
+  plugins: [Inspect(), svelte(), utools()],
+});
