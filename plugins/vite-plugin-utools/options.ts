@@ -40,7 +40,7 @@ const defaultOptions: RequiredOptions = {
   preload: {
     path: "./src/preload.ts",
     watch: true,
-    name: "window.preload",
+    name: "window",
   },
   buildUpx: {
     pluginPath: "./plugin.json",

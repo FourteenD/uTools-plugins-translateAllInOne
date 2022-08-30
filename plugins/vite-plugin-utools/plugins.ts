@@ -15,6 +15,7 @@ export const preloadPlugin = (
     };
 
   const { path, watch, name } = preloadOptions;
+
   const filter = createPreloadFilter(path);
 
   return {
@@ -41,15 +42,15 @@ export const preloadPlugin = (
       },
     }),
 
-    transform: (code, id) =>
+    transform: (code, id) => {
       !transformFilter(id)
         ? code
         : filter(id)
         ? transformPreload(code, name)
         : transformExternal(code, (sourcePath) =>
             filter(resolve(id, "../", sourcePath)) ? name : void 0
-          ),
-
+          );
+    },
     handleHotUpdate: async ({ file }) => {
       if (watch && filter(file)) await viteBuild();
     },

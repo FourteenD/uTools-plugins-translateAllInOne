@@ -45,7 +45,6 @@ export const transformPreload = async (sourceCode: string, varName: string) => {
       transformExportToAssign(varName),
     ],
   });
-
   return result?.code;
 };
 
