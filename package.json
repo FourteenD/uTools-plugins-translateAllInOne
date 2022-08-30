@@ -10,14 +10,26 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.1",
+    "@sveltejs/vite-plugin-svelte": "^1.0.2",
     "@tsconfig/svelte": "^3.0.0",
     "svelte": "^3.49.0",
-    "svelte-check": "^2.8.0",
+    "svelte-check": "^2.9.0",
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
-    "typescript": "^4.6.4",
-    "vite": "^3.0.7",
-    "vite-plugin-inspect": "^0.6.0"
+    "typescript": "^4.8.2",
+    "vite": "^3.0.9",
+    "vite-plugin-inspect": "^0.6.0",
+    "@types/babel__core": "^7.1.19",
+    "@types/node": "^18.7.14",
+    "bumpp": "^8.2.1",
+    "tsup": "^6.2.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/parser": "^7.18.13",
+    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
+    "@rollup/pluginutils": "^4.2.1",
+    "asar": "^3.2.0",
+    "picocolors": "^1.0.0"
   }
 }
