@@ -1,21 +1,15 @@
 import { Plugin } from "vite";
+import { resolveOptions, Options } from "./options";
+import { apiExternalPlugin, buildUpxPlugin, preloadPlugin } from "./plugins";
 
-export default function utools(options = {}): Plugin {
-  const virtualModuleId = "virtual:my-module";
-  const resolvedVirtualModuleId = "\0" + virtualModuleId;
+export const viteUtoolsPlugin = (options: Options = {}): Plugin[] => {
+  const requiredOptions = resolveOptions(options);
 
-  return {
-    name: "vite-plugin-utools",
-    resolveId(id) {
-      if (id === virtualModuleId) {
-        return resolvedVirtualModuleId;
-      }
-    },
-    load(id) {
-      if (id === resolvedVirtualModuleId) {
-        return `export const msg = "from virtual module"`;
-      }
-    },
-    transform() {},
-  };
-}
+  return [
+    preloadPlugin(requiredOptions.preload),
+    apiExternalPlugin(requiredOptions.external),
+    buildUpxPlugin(requiredOptions),
+  ];
+};
+
+export default viteUtoolsPlugin;
